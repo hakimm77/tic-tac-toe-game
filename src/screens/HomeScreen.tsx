@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Button, Text } from "@chakra-ui/react";
 import Spacer from "../components/reusables/Spacer";
 import switchRoutes from "../helpers/switchRoutes";
 
 const HomeScreen: React.FC = () => {
+  useEffect(() => {
+    document.title = "Home | Tic Tac Toe";
+  }, []);
+
   return (
     <Box
       display="flex"
@@ -18,30 +22,33 @@ const HomeScreen: React.FC = () => {
       <Text color="white" fontSize={60} fontWeight="bold">
         Tic Tac Toe
       </Text>
-      <Spacer height={10} />
+      <Spacer height={8} />
 
       <Box
         display="flex"
         flexDirection="row"
-        width="40%"
+        width="50%"
         alignItems="center"
         justifyContent="space-around"
       >
-        <Button
-          onClick={() => {
-            switchRoutes("/singelplayer");
-          }}
-        >
-          <Text>Singelplayer</Text>
-        </Button>
+        <Box display="flex" flexDirection="column">
+          <Button
+            onClick={() => {
+              switchRoutes("/create");
+            }}
+          >
+            <Text>Create game</Text>
+          </Button>
+          <Spacer height={0.2} />
 
-        <Button
-          onClick={() => {
-            switchRoutes("/waiting");
-          }}
-        >
-          <Text>Multiplayer</Text>
-        </Button>
+          <Button
+            onClick={() => {
+              switchRoutes("/join");
+            }}
+          >
+            <Text>Join game</Text>
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
