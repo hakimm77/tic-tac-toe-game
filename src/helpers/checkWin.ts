@@ -68,6 +68,12 @@ const checkWin = (board: ArrayOfObjects, turn: string | null) => {
       }
     }
   }
+
+  let arr = board.filter((e) => e.slot !== "empty");
+
+  if (arr.length === 9) {
+    switchRoutes("/tie");
+  }
 };
 
 export default checkWin;

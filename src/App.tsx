@@ -11,6 +11,7 @@ import JoinRoom from "./screens/JoinRoom";
 import GameScreen from "./screens/GameScreen";
 import LoserScreen from "./screens/LoserScreen";
 import WinnerScreen from "./screens/WinnerScreen";
+import TieScreen from "./screens/TieGame";
 
 const theme = extendTheme({
   styles: {
@@ -56,6 +57,7 @@ const App = () => {
         <RouteComponent path="/waiting" component={WaitingPlayersSreen} />
         <RouteComponent path="/loser" component={LoserScreen} />
         <RouteComponent path="/winner" component={WinnerScreen} />
+        <RouteComponent path="/tie" component={TieScreen} />
       </BrowserRouter>
     </ChakraProvider>
   );
